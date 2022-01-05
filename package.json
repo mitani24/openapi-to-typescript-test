@@ -6,12 +6,18 @@
   "license": "MIT",
   "scripts": {
     "gen:openapi-typescript": "openapi-typescript https://petstore3.swagger.io/api/v3/openapi.json --output openapi-typescript/schema.ts",
-    "gen:sw2dts": "sw2dts --output sw2dts/schema.d.ts https://petstore3.swagger.io/api/v3/openapi.json",
+    "gen:sw2dts": "sw2dts --output sw2dts/schema.d.ts openapi.json",
     "gen:openapi2aspida": "openapi2aspida",
-    "gen:swagger-typescript-api": "swagger-typescript-api -p https://petstore3.swagger.io/api/v3/openapi.json -o ./swagger-typescript-api"
+    "gen:swagger-typescript-api": "swagger-typescript-api -p https://petstore3.swagger.io/api/v3/openapi.json -o ./swagger-typescript-api",
+    "gen:openapi-typescript-codegen": "openapi -i https://petstore3.swagger.io/api/v3/openapi.json -o openapi-typescript-codegen",
+    "gen:openapi-typescript-code-generator": "node gen.js",
+    "gen:dtsgenerator": "dtsgen -o dtsgenerator/types.d.ts --url https://petstore3.swagger.io/api/v3/openapi.json"
   },
   "devDependencies": {
+    "@himenon/openapi-typescript-code-generator": "^0.13.0",
+    "dtsgenerator": "^3.13.2",
     "openapi-typescript": "^5.0.0",
+    "openapi-typescript-codegen": "^0.12.5",
     "openapi2aspida": "^0.16.5",
     "sw2dts": "^2.7.0-beta.2",
     "swagger-typescript-api": "^9.3.1"
